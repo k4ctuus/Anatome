@@ -77,6 +77,8 @@
         <td id="innervation"></td>
         <td id="region"></td>
       </tr>
+    </thead>
+    <tbody id="resultTableBody">
     </tbody>
   </table>
 
@@ -326,12 +328,23 @@
         alert("Muscle non reconnu dans la base de données.");
         return;
       }
-
+      const newRow = document.createElement("tr");
+      
+      newRow.innerHTML = `
+        <td>${proposition.origine}</td>
+        <td>${proposition.terminaison}</td>
+        <td>${proposition.fonctionPrincipale}</td>
+        <td>${proposition.innervation}</td>
+        <td>${proposition.region}</td>  
+       ;  
       compareField("origine", proposition.origine, solution.origine);
       compareField("terminaison", proposition.terminaison, solution.terminaison);
       compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
       compareField("innervation", proposition.innervation, solution.innervation);
       compareField("region", proposition.region, solution.region);
+
+      const tableBody = document.getElementById("resultTableBody");
+      tableBody.insertBefore(newRow, tableBody.firstChild);      
     }
 
     function compareField(fieldId, value, correctValue) {

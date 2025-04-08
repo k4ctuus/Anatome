@@ -11,7 +11,7 @@
     /* Général */
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #fff5e6;
+      background-color: #ffffff;
       color: #4f6d7a;
       display: flex;
       flex-direction: column;
@@ -365,6 +365,20 @@
     function checkAnswer() {
       const input = document.getElementById("answer").value.toLowerCase();
       const proposition = muscles.find(m => m.nom.toLowerCase() === input);
+      
+    function compareField(fieldId, value, correctValue) {
+      const cell = document.getElementById(fieldId);
+      cell.textContent = value;  // Remplir la cellule avec la valeur
+
+  // Vérifie si la réponse est correcte et applique une classe CSS appropriée
+  if (value === correctValue) {
+    cell.className = "correct";  // Classe pour correcte
+  } else if (value.split(" ").some(word => correctValue.includes(word))) {
+    cell.className = "partial";  // Classe pour partiellement correcte
+  } else {
+    cell.className = "incorrect";  // Classe pour incorrecte
+  }
+}
 
       if (!proposition) {
         alert("Muscle non reconnu dans la base de données.");

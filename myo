@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Anatomie - Myologie</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff5e6;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #a0522d;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem 1rem;
+      text-align: left;
+    }
+    .correct {
+      background-color: #c8e6c9;
+    }
+    .partial {
+      background-color: #fff3cd;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      font-size: 1rem;
+      background: #a0522d;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Trouve le muscle !</h1>
+  <input type="text" id="answer" placeholder="Tape le nom d'un muscle..." />
+  <button onclick="checkAnswer()">Valider</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Origine</th>
+        <th>Terminaison</th>
+        <th>Fonction</th>
+        <th>Innervation</th>
+        <th>Région</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="origine"></td>
+        <td id="terminaison"></td>
+        <td id="fonction"></td>
+        <td id="innervation"></td>
+        <td id="region"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const muscles = [
+      {
+        nom: "triceps brachial",
+        origine: "tubérosité infra-glénoïdale et faces postérieures de l'humérus",
+        terminaison: "olécrâne de l’ulna",
+        fonction: "extension du coude",
+        innervation: "nerf radial",
+        region: "membre supérieur"
+      },
+      {
+        nom: "biceps brachial",
+        origine: "processus coracoïde et tubercule supra-glénoïdal",
+        terminaison: "tubérosité radiale",
+        fonction: "flexion du coude et supination",
+        innervation: "nerf musculo-cutané",
+        region: "membre supérieur"
+      }
+    ];
+
+    const solution = muscles[0]; // triceps brachial
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.toLowerCase();
+      const proposition = muscles.find(m => m.nom.toLowerCase() === input);
+
+      if (!proposition) {
+        alert("Muscle non reconnu dans la base de données.");
+        return;
+      }
+
+      compareField("origine", proposition.origine, solution.origine);
+      compareField("terminaison", proposition.terminaison, solution.terminaison);
+      compareField("fonction", proposition.fonction, solution.fonction);
+      compareField("innervation", proposition.innervation, solution.innervation);
+      compareField("region", proposition.region, solution.region);
+    }
+
+    function compareField(fieldId, value, correctValue) {
+      const cell = document.getElementById(fieldId);
+      cell.textContent = value;
+
+      if (value === correctValue) {
+        cell.className = "correct";
+      } else if (value.split(" ").some(word => correctValue.includes(word))) {
+        cell.className = "partial";
+      } else {
+        cell.className = "incorrect";
+      }
+    }
+  </script>
+</body>
+</html>

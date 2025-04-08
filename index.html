@@ -4,105 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz Anatomie - Myologie</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
-
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #ffffff;
-      color: #4f6d7a;
+      font-family: sans-serif;
+      background: #ffffff;
+      color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 2rem;
-      margin: 0;
     }
-
     h1 {
-      font-size: 2.5rem;
-      color: #4f6d7a;
-      text-align: center;
-      margin-bottom: 1.5rem;
+      color: #a0522d;
     }
-
-    input {
-      padding: 0.5rem;
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      background-color: #ffffff;
-      border: 2px solid #4f6d7a;
-      border-radius: 4px;
-      outline: none;
-      width: 300px;
-      max-width: 100%;
-
-      transition: background-color 0.3s ease, border 0.3s ease;
-    }
-
-    input:focus {
-      border-color: #4f6d7a;
-    }
-
-    /* Style du bouton */
-    button {
-      padding: 0.5rem 1rem;
-      margin-left: 1rem;
-      font-size: 1.1rem;
-      background-color: #4f6d7a;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    button:hover {
-      background-color: white;
-      color: #4f6d7a;
-      border: 2px solid #4f6d7a;
-    }
-
-    /* Style du tableau */
     table {
-      margin-top: 2rem;
       border-collapse: collapse;
-      width: 100%;
-      max-width: 800px;
+      margin-top: 1rem;
     }
-
     th, td {
       border: 1px solid #ccc;
       padding: 0.5rem 1rem;
       text-align: left;
-      word-wrap: break-word;  /* Permet de couper les mots longs */
-      width: 20%;  /* Contrôle la largeur des colonnes */
     }
-
-    th {
-      background-color: #4f6d7a;
-      color: white;
-    }
-
-    td {
-      background-color: #f9f9f9;
-    }
-
     .correct {
       background-color: #c8e6c9;
     }
-
     .partial {
       background-color: #fff3cd;
     }
-
     .incorrect {
       background-color: #f8d7da;
     }
-
-    tr td:first-child {
-      font-weight: bold;
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
     }
-
+    button {
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      font-size: 1rem;
+      background: #a0522d;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -122,12 +68,12 @@
     </thead>
     <tbody>
       <tr>
-         <td id="origine"></td>
-         <td id="terminaison"></td>
-         <td id="fonction-principale"></td>
-         <td id="innervation"></td>
-         <td id="region"></td>
-     </tr>
+        <td id="origine"></td>
+        <td id="terminaison"></td>
+        <td id="fonction-principale"></td>
+        <td id="innervation"></td>
+        <td id="region"></td>
+      </tr>
     </tbody>
   </table>
 

@@ -329,14 +329,25 @@
         return;
       }
       const newRow = document.createElement("tr");
+
+      const origineCell = document.createElement("td");
+      const terminaisonCell = document.createElement("td");
+      const fonctionCell = document.createElement("td");
+      const innervationCell = document.createElement("td");
+      const regionCell = document.createElement("td");      
       
-      newRow.innerHTML = `
-        <td>${proposition.origine}</td>
-        <td>${proposition.terminaison}</td>
-        <td>${proposition.fonctionPrincipale}</td>
-        <td>${proposition.innervation}</td>
-        <td>${proposition.region}</td>  
-       ;  
+      newRow.appendChild(origineCell);
+      newRow.appendChild(terminaisonCell);
+      newRow.appendChild(fonctionCell);
+      newRow.appendChild(innervationCell);
+      newRow.appendChild(regionCell);
+      
+      origineCell.textContent = proposition.origine;
+      terminaisonCell.textContent = proposition.terminaison;
+      fonctionCell.textContent = proposition.fonctionPrincipale;
+      innervationCell.textContent = proposition.innervation;
+      regionCell.textContent = proposition.region;
+      
       compareField("origine", proposition.origine, solution.origine);
       compareField("terminaison", proposition.terminaison, solution.terminaison);
       compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);

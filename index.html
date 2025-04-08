@@ -366,51 +366,38 @@
             innervation: "nerf plantaire latéral",
             region: "pied"
         },
-    ];
+     ];
 
     let solution = muscles[Math.floor(Math.random() * muscles.length)];
-  
+
     function checkAnswer() {
       const input = document.getElementById("answer").value.toLowerCase();
       const proposition = muscles.find(m => m.nom.toLowerCase() === input);
-      
-    function compareField(fieldId, value, correctValue) {
-      const cell = document.getElementById(fieldId);
-      cell.textContent = value;  // Remplir la cellule avec la valeur
-
-  // Vérifie si la réponse est correcte et applique une classe CSS appropriée
-  if (value === correctValue) {
-    cell.className = "correct";  // Classe pour correcte
-  } else if (value.split(" ").some(word => correctValue.includes(word))) {
-    cell.className = "partial";  // Classe pour partiellement correcte
-  } else {
-    cell.className = "incorrect";  // Classe pour incorrecte
-  }
-}
 
       if (!proposition) {
         alert("Muscle non reconnu dans la base de données.");
         return;
       }
 
-      addIndex("Origine", proposition.origine, solution.origine);
-      addIndex("Terminaison", proposition.terminaison, solution.terminaison);
-      addIndex("Fonction principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
-      addIndex("Innervation", proposition.innervation, solution.innervation);
-      addIndex("Région", proposition.region, solution.region);
+      compareField("origine", proposition.origine, solution.origine);
+      compareField("terminaison", proposition.terminaison, solution.terminaison);
+      compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
+      compareField("innervation", proposition.innervation, solution.innervation);
+      compareField("region", proposition.region, solution.region);
     }
 
-function addIndex(fieldName, value, correctValue) {
-  const tableBody = document.querySelector("tbody");
-  const newRow = document.createElement("tr");
-  const cell1 = document.createElement("td");
-  cell1.textContent = fieldName;
-  const cell2 = document.createElement("td");
-  cell2.textContent = value;
+    function compareField(fieldId, value, correctValue) {
+      const cell = document.getElementById(fieldId);
+      cell.textContent = value;
 
-  newRow.appendChild(cell1);
-  newRow.appendChild(cell2);
-
+      if (value === correctValue) {
+        cell.className = "correct";
+      } else if (value.split(" ").some(word => correctValue.includes(word))) {
+        cell.className = "partial";
+      } else {
+        cell.className = "incorrect";
+      }
+      
   // Ajouter la ligne au tableau
   tableBody.appendChild(newRow);
     }

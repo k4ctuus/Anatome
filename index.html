@@ -61,7 +61,7 @@
       <tr>
         <th>Origine</th>
         <th>Terminaison</th>
-        <th>Fonction</th>
+        <th>Fonction principale</th>
         <th>Innervation</th>
         <th>Région</th>
       </tr>
@@ -70,7 +70,7 @@
       <tr>
         <td id="origine"></td>
         <td id="terminaison"></td>
-        <td id="fonction"></td>
+        <td id="fonction-principale"></td>
         <td id="innervation"></td>
         <td id="region"></td>
       </tr>
@@ -83,15 +83,15 @@
         nom: "triceps brachial",
         origine: "tubérosité infra-glénoïdale et faces postérieures de l'humérus",
         terminaison: "olécrâne de l’ulna",
-        fonction: "extension du coude",
+        fonctionPrincipale: "extension du coude",
         innervation: "nerf radial",
         region: "membre supérieur"
       },
       {
         nom: "biceps brachial",
-        origine: "processus coracoïde et tubercule supra-glénoïdal",
-        terminaison: "tubérosité radiale",
-        fonction: "flexion du coude et supination",
+        origine: "processus coracoïde et tubercule supra-glénoïdal de la scapula",
+        terminaison: "tubérosité du radius",
+        fonctionPrincipale: "flexion du coude, supination de l'avant-bras",
         innervation: "nerf musculo-cutané",
         region: "membre supérieur"
       },
@@ -99,7 +99,7 @@
         nom: "deltoïde",
         origine: "clavicule, acromion et épine de la scapula",
         terminaison: "tubérosité deltoïdienne de l'humérus",
-        fonction: "abduction du bras",
+        fonctionPrincipale: "abduction du bras",
         innervation: "nerf axillaire",
         region: "membre supérieur"
       }
@@ -118,7 +118,7 @@
 
       compareField("origine", proposition.origine, solution.origine);
       compareField("terminaison", proposition.terminaison, solution.terminaison);
-      compareField("fonction", proposition.fonction, solution.fonction);
+      compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
       compareField("innervation", proposition.innervation, solution.innervation);
       compareField("region", proposition.region, solution.region);
     }
@@ -135,9 +135,6 @@
         cell.className = "incorrect";
       }
     }
-  </script>
-</body>
-</html>
   </script>
 </body>
 </html>

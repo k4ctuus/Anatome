@@ -359,9 +359,6 @@
     }
 
     function compareField(fieldId, value, correctValue) {
-      const cell = document.getElementById(fieldId);
-      cell.textContent = value;
-
       if (value === correctValue) {
         cell.className = "correct";
       } else if (value.split(" ").some(word => correctValue.includes(word))) {

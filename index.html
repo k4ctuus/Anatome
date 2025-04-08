@@ -365,45 +365,38 @@
             innervation: "nerf plantaire latéral",
             region: "pied"
         },
-     ];
+    ];
 
     let solution = muscles[Math.floor(Math.random() * muscles.length)];
 
     function checkAnswer() {
-        const input = document.getElementById("answer").value.toLowerCase();
-        const proposition = muscles.find(m => m.nom.toLowerCase() === input);
+      const input = document.getElementById("answer").value.toLowerCase();
+      const proposition = muscles.find(m => m.nom.toLowerCase() === input);
 
-        if (!proposition) {
-            alert("Muscle non reconnu dans la base de données.");
-            return;
-        }
-
-  
-        compareField("origine", proposition.origine, solution.origine);
-        compareField("terminaison", proposition.terminaison, solution.terminaison);
-        compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
-        compareField("innervation", proposition.innervation, solution.innervation);
-        compareField("region", proposition.region, solution.region);
+      if (!proposition) {
+        alert("Muscle non reconnu dans la base de données.");
+        return;
       }
 
-function compareField(fieldId, value, correctValue) {
-  const cell = document.getElementById(fieldId);
-  cell.textContent = value;
+      compareField("origine", proposition.origine, solution.origine);
+      compareField("terminaison", proposition.terminaison, solution.terminaison);
+      compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
+      compareField("innervation", proposition.innervation, solution.innervation);
+      compareField("region", proposition.region, solution.region);
+    }
 
-  if (value === correctValue) {
-    cell.className = "correct";
-  } else if (value.split(" ").some(word => correctValue.includes(word))) {
-    cell.className = "partial";
-  } else {
-    cell.className = "incorrect";
-  }
-}
+    function compareField(fieldId, value, correctValue) {
+      const cell = document.getElementById(fieldId);
+      cell.textContent = value;
 
-document.getElementById("answer").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    checkAnswer();
-  }
-});
+      if (value === correctValue) {
+        cell.className = "correct";
+      } else if (value.split(" ").some(word => correctValue.includes(word))) {
+        cell.className = "partial";
+      } else {
+        cell.className = "incorrect";
+      }
+    }
   </script>
 </body>
 </html>

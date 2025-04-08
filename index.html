@@ -370,14 +370,14 @@
 
     let solution = muscles[Math.floor(Math.random() * muscles.length)];
 
-function checkAnswer() {
-  const input = document.getElementById("answer").value.toLowerCase();
-  const proposition = muscles.find(m => m.nom.toLowerCase() === input);
+    function checkAnswer() {
+        const input = document.getElementById("answer").value.toLowerCase();
+        const proposition = muscles.find(m => m.nom.toLowerCase() === input);
 
-  if (!proposition) {
-    alert("Muscle non reconnu dans la base de données.");
-    return;
-  }
+        if (!proposition) {
+            alert("Muscle non reconnu dans la base de données.");
+            return;
+}
 
   // On remplit les champs du tableau avec les données de la proposition
   compareField("origine", proposition.origine, solution.origine);
@@ -387,12 +387,11 @@ function checkAnswer() {
   compareField("region", proposition.region, solution.region);
 }
 
-// Fonction pour comparer les champs et ajouter la classe selon la réponse
 function compareField(fieldId, value, correctValue) {
   const cell = document.getElementById(fieldId);
-  cell.textContent = value;  // Remplir la cellule avec la valeur
+  cell.textContent = value;
 
-  // Appliquer les classes pour afficher si la réponse est correcte, partielle ou incorrecte
+
   if (value === correctValue) {
     cell.className = "correct";
   } else if (value.split(" ").some(word => correctValue.includes(word))) {
@@ -402,7 +401,6 @@ function compareField(fieldId, value, correctValue) {
   }
 }
 
-// Ajout de l'écouteur pour valider via la touche Entrée
 document.getElementById("answer").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     checkAnswer();
@@ -410,3 +408,8 @@ document.getElementById("answer").addEventListener("keypress", function(event) {
 });
 
 window.onload = startGame;
+    solution = muscles[Math.floor(Math.random() * muscles.length)];
+    };
+</script>
+</body>
+</html>

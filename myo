@@ -94,10 +94,18 @@
         fonction: "flexion du coude et supination",
         innervation: "nerf musculo-cutané",
         region: "membre supérieur"
+      },
+      {
+        nom: "deltoïde",
+        origine: "clavicule, acromion et épine de la scapula",
+        terminaison: "tubérosité deltoïdienne de l'humérus",
+        fonction: "abduction du bras",
+        innervation: "nerf axillaire",
+        region: "membre supérieur"
       }
     ];
 
-    const solution = muscles[0]; // triceps brachial
+    let solution = muscles[Math.floor(Math.random() * muscles.length)];
 
     function checkAnswer() {
       const input = document.getElementById("answer").value.toLowerCase();
@@ -127,6 +135,9 @@
         cell.className = "incorrect";
       }
     }
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>

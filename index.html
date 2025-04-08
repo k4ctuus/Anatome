@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* Général */
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #ffffff;
@@ -377,20 +376,19 @@
         if (!proposition) {
             alert("Muscle non reconnu dans la base de données.");
             return;
-}
+        }
 
-  // On remplit les champs du tableau avec les données de la proposition
-  compareField("origine", proposition.origine, solution.origine);
-  compareField("terminaison", proposition.terminaison, solution.terminaison);
-  compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
-  compareField("innervation", proposition.innervation, solution.innervation);
-  compareField("region", proposition.region, solution.region);
-}
+  
+        compareField("origine", proposition.origine, solution.origine);
+        compareField("terminaison", proposition.terminaison, solution.terminaison);
+        compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
+        compareField("innervation", proposition.innervation, solution.innervation);
+        compareField("region", proposition.region, solution.region);
+      }
 
 function compareField(fieldId, value, correctValue) {
   const cell = document.getElementById(fieldId);
   cell.textContent = value;
-
 
   if (value === correctValue) {
     cell.className = "correct";
@@ -406,10 +404,6 @@ document.getElementById("answer").addEventListener("keypress", function(event) {
     checkAnswer();
   }
 });
-
-window.onload = startGame;
-    solution = muscles[Math.floor(Math.random() * muscles.length)];
-    };
-</script>
+  </script>
 </body>
 </html>

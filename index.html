@@ -66,43 +66,245 @@
         <th>Région</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td id="origine"></td>
-        <td id="terminaison"></td>
-        <td id="fonction-principale"></td>
-        <td id="innervation"></td>
-        <td id="region"></td>
-      </tr>
+    <tbody id="indices-tbody">
+  
     </tbody>
   </table>
 
-  <script>
+<script>
     const muscles = [
-      {
-        nom: "triceps brachial",
-        origine: "tubérosité infra-glénoïdale et faces postérieures de l'humérus",
-        terminaison: "olécrâne de l’ulna",
-        fonctionPrincipale: "extension du coude",
-        innervation: "nerf radial",
-        region: "membre supérieur"
-      },
-      {
-        nom: "biceps brachial",
-        origine: "processus coracoïde et tubercule supra-glénoïdal de la scapula",
-        terminaison: "tubérosité du radius",
-        fonctionPrincipale: "flexion du coude, supination de l'avant-bras",
-        innervation: "nerf musculo-cutané",
-        region: "membre supérieur"
-      },
-      {
-        nom: "deltoïde",
-        origine: "clavicule, acromion et épine de la scapula",
-        terminaison: "tubérosité deltoïdienne de l'humérus",
-        fonctionPrincipale: "abduction du bras",
-        innervation: "nerf axillaire",
-        region: "membre supérieur"
-      }
+        {
+            nom: "iliopsoas",
+            origine: "t12 à L5 (psoas), crête iliaque, fosse iliaque",
+            terminaison: "petit trochanter du fémur",
+            fonctionPrincipale: "flexion de la hanche",
+            innervation: "nerf fémoral, nerf du psoas",
+            region: "cuisse"
+        },
+        {
+            nom: "quadriceps fémoral",
+            origine: "épine iliaque antéro-supérieure et ligne âpre du fémur",
+            terminaison: "tendon du quadriceps et la base de la patella",
+            fonctionPrincipale: "extension du genou",
+            innervation: "nerf fémoral",
+            region: "cuisse"
+        },
+        {
+            nom: "sartorius",
+            origine: "épine iliaque antéro-supérieure",
+            terminaison: "bord médial du tibia",
+            fonctionPrincipale: "flexion, abduction et rotation externe de la hanche, flexion du genou",
+            innervation: "nerf fémoral",
+            region: "cuisse"
+        },
+        {
+            nom: "long adducteur",
+            origine: "pubis",
+            terminaison: "ligne âpre du fémur",
+            fonctionPrincipale: "adduction et flexion de la hanche",
+            innervation: "nerf obturateur",
+            region: "cuisse"
+        },
+        {
+            nom: "court adducteur",
+            origine: "pubis",
+            terminaison: "ligne âpre du fémur",
+            fonctionPrincipale: "adduction de la cuisse",
+            innervation: "nerf obturateur",
+            region: "cuisse"
+        },
+        {
+            nom: "grand adducteur",
+            origine: "pubis, ischion",
+            terminaison: "ligne âpre et tubercule du fémur",
+            fonctionPrincipale: "adduction, extension et rotation externe de la hanche",
+            innervation: "nerf obturateur et nerf sciatique",
+            region: "cuisse"
+        },
+        {
+            nom: "gracile",
+            origine: "pubis",
+            terminaison: "bord médial du tibia",
+            fonctionPrincipale: "adduction de la cuisse, flexion du genou",
+            innervation: "nerf obturateur",
+            region: "cuisse"
+        },
+        {
+            nom: "grand fessier",
+            origine: "crête iliaque, sacrum, coccyx",
+            terminaison: "tubérosité gluteale de l'humérus",
+            fonctionPrincipale: "extension, abduction et rotation externe de la hanche",
+            innervation: "nerf gluteal inférieur",
+            region: "cuisse"
+        },
+        {
+            nom: "moyen fessier",
+            origine: "ala de l'ilium",
+            terminaison: "trochanter majeur du fémur",
+            fonctionPrincipale: "abduction et rotation interne de la hanche",
+            innervation: "nerf gluteal supérieur",
+            region: "cuisse"
+        },
+        {
+            nom: "petit fessier",
+            origine: "ala de l'ilium",
+            terminaison: "trochanter majeur du fémur",
+            fonctionPrincipale: "abduction et rotation interne de la hanche",
+            innervation: "nerf gluteal supérieur",
+            region: "cuisse"
+        },
+        {
+            nom: "tensor du fascia lata",
+            origine: "crête iliaque",
+            terminaison: "tractus iliotibial (bord latéral du tibia)",
+            fonctionPrincipale: "flexion et abduction de la hanche, extension du genou",
+            innervation: "nerf gluteal supérieur",
+            region: "cuisse"
+        },
+        {
+            nom: "biceps fémoral",
+            origine: "tête longue : tubérosité ischiatique; tête courte : ligne âpre du fémur",
+            terminaison: "tête du fibula",
+            fonctionPrincipale: "flexion du genou, extension de la hanche",
+            innervation: "nerf sciatique",
+            region: "cuisse"
+        },
+        {
+            nom: "semitendineux",
+            origine: "tubérosité ischiatique",
+            terminaison: "bord médial du tibia",
+            fonctionPrincipale: "flexion du genou, extension de la hanche",
+            innervation: "nerf sciatique",
+            region: "cuisse"
+        },
+        {
+            nom: "semimembraneux",
+            origine: "tubérosité ischiatique",
+            terminaison: "condyle médial du tibia",
+            fonctionPrincipale: "flexion du genou, extension de la hanche",
+            innervation: "nerf sciatique",
+            region: "cuisse"
+        },
+        {
+            nom: "gastrocnémien",
+            origine: "condyles du fémur",
+            terminaison: "calcanéum via le tendon d'Achille",
+            fonctionPrincipale: "flexion plantaire du pied, flexion du genou",
+            innervation: "nerf tibial",
+            region: "jambe"
+        },
+        {
+            nom: "soléaire",
+            origine: "tibia, fibula",
+            terminaison: "calcanéum via le tendon d'Achille",
+            fonctionPrincipale: "flexion plantaire du pied",
+            innervation: "nerf tibial",
+            region: "jambe"
+        },
+        {
+            nom: "tibial antérieur",
+            origine: "tibia",
+            terminaison: "cuboïde, premier métatarsien",
+            fonctionPrincipale: "dorsiflexion du pied, inversion",
+            innervation: "nerf fibulaire profond",
+            region: "jambe"
+        },
+        {
+            nom: "long fibulaire",
+            origine: "fibula",
+            terminaison: "cuboïde, premier métatarsien",
+            fonctionPrincipale: "éversion du pied",
+            innervation: "nerf fibulaire superficiel",
+            region: "jambe"
+        },
+        {
+            nom: "court fibulaire",
+            origine: "fibula",
+            terminaison: "base du cinquième métatarsien",
+            fonctionPrincipale: "éversion du pied",
+            innervation: "nerf fibulaire superficiel",
+            region: "jambe"
+        },
+        {
+            nom: "extenseur commun des orteils",
+            origine: "condyle latéral du fémur",
+            terminaison: "phalanges distales des orteils",
+            fonctionPrincipale: "extension des orteils",
+            innervation: "nerf fibulaire profond",
+            region: "jambe"
+        },
+        {
+            nom: "extenseur propre du gros orteil",
+            origine: "fibula",
+            terminaison: "phalange distale du gros orteil",
+            fonctionPrincipale: "extension du gros orteil",
+            innervation: "nerf fibulaire profond",
+            region: "jambe"
+        },
+        {
+            nom: "obturateur interne",
+            origine: "surface interne de la membrane obturatrice et os autour du foramen obturé",
+            terminaison: "fémur, fosse trochantérique",
+            fonctionPrincipale: "rotation externe de la hanche",
+            innervation: "nerf du muscle obturateur interne",
+            region: "cuisse"
+        },
+        {
+            nom: "flexeur superficiel des orteils",
+            origine: "condyle médial du fémur",
+            terminaison: "phalanges intermédiaires des orteils 2 à 5",
+            fonctionPrincipale: "flexion des orteils, flexion du genou",
+            innervation: "nerf tibial",
+            region: "jambe"
+        },
+        {
+            nom: "flexeur profond des orteils",
+            origine: "tibia et fibula",
+            terminaison: "phalanges distales des orteils 2 à 5",
+            fonctionPrincipale: "flexion des orteils, flexion plantaire",
+            innervation: "nerf tibial",
+            region: "jambe"
+        },
+        {
+            nom: "tibial postérieur",
+            origine: "tibia, fibula et membrane interosseuse",
+            terminaison: "tendon passant derrière la malléole médiale, se fixant au naviculaire et aux os cunéiformes",
+            fonctionPrincipale: "flexion plantaire, inversion du pied, soutien de l'arc du pied",
+            innervation: "nerf tibial",
+            region: "jambe"
+        },
+        {
+            nom: "long fléchisseur de l'hallux",
+            origine: "fibula et membrane interosseuse",
+            terminaison: "phalange distale du gros orteil",
+            fonctionPrincipale: "flexion du gros orteil, flexion plantaire",
+            innervation: "nerf tibial",
+            region: "jambe"
+        },
+        {
+            nom: "lombricaux (pied)",
+            origine: "tendon des muscles fléchisseurs des orteils",
+            terminaison: "phalanges proximales des orteils 2 à 5",
+            fonctionPrincipale: "flexion des articulations métatarso-phalangiennes et extension des articulations interphalangiennes",
+            innervation: "nerf plantaire médial et latéral",
+            region: "pied"
+        },
+        {
+            nom: "interosseux dorsaux",
+            origine: "faces adjacentes des métatarses 1 à 5",
+            terminaison: "bases des phalanges proximales et tendons des lombricaux",
+            fonctionPrincipale: "abduction des orteils (surtout les 2 premiers)",
+            innervation: "nerf plantaire latéral",
+            region: "pied"
+        },
+        {
+            nom: "interosseux plantaires",
+            origine: "faces médiales des métatarses 3 à 5",
+            terminaison: "bases des phalanges proximales des orteils 3 à 5",
+            fonctionPrincipale: "adduction des orteils",
+            innervation: "nerf plantaire latéral",
+            region: "pied"
+        },
     ];
 
     let solution = muscles[Math.floor(Math.random() * muscles.length)];
@@ -116,16 +318,28 @@
         return;
       }
 
-      compareField("origine", proposition.origine, solution.origine);
-      compareField("terminaison", proposition.terminaison, solution.terminaison);
-      compareField("fonction-principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
-      compareField("innervation", proposition.innervation, solution.innervation);
-      compareField("region", proposition.region, solution.region);
+      addRow("Origine", proposition.origine, solution.origine);
+      addRow("Terminaison", proposition.terminaison, solution.terminaison);
+      addRow("Fonction principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
+      addRow("Innervation", proposition.innervation, solution.innervation);
+      addRow("Région", proposition.region, solution.region);
     }
 
-    function compareField(fieldId, value, correctValue) {
-      const cell = document.getElementById(fieldId);
-      cell.textContent = value;
+    function addRow(field, value, correctValue) {
+      const tbody = document.getElementById("indices-tbody");
+      const row = document.createElement("tr");
+
+      const fieldCell = document.createElement("td");
+      fieldCell.textContent = field;
+      row.appendChild(fieldCell);
+
+      const valueCell = document.createElement("td");
+      valueCell.textContent = value;
+      row.appendChild(valueCell);
+
+      const correctCell = document.createElement("td");
+      correctCell.textContent = correctValue;
+      row.appendChild(correctCell);
 
       if (value === correctValue) {
         cell.className = "correct";
@@ -134,7 +348,14 @@
       } else {
         cell.className = "incorrect";
       }
+      tbody.appendChild(row);
     }
+
+      document.getElementById("answer").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        checkAnswer();
+      }
+    });
   </script>
 </body>
 </html>

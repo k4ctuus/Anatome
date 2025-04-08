@@ -358,10 +358,6 @@
     ];
 
     let solution = muscles[Math.floor(Math.random() * muscles.length)];
-
-      function startGame() {
-      solution = muscles[Math.floor(Math.random() * muscles.length)];
-    }
   
     function checkAnswer() {
       const input = document.getElementById("answer").value.toLowerCase();
@@ -372,37 +368,26 @@
         return;
       }
 
-      addRow("Origine", proposition.origine, solution.origine);
-      addRow("Terminaison", proposition.terminaison, solution.terminaison);
-      addRow("Fonction principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
-      addRow("Innervation", proposition.innervation, solution.innervation);
-      addRow("Région", proposition.region, solution.region);
+      addIndex("Origine", proposition.origine, solution.origine);
+      addIndex("Terminaison", proposition.terminaison, solution.terminaison);
+      addIndex("Fonction principale", proposition.fonctionPrincipale, solution.fonctionPrincipale);
+      addIndex("Innervation", proposition.innervation, solution.innervation);
+      addIndex("Région", proposition.region, solution.region);
     }
 
-    function addRow(field, value, correctValue) {
-      const tbody = document.getElementById("indices-tbody");
-      const row = document.createElement("tr");
+function addIndex(fieldName, value, correctValue) {
+  const tableBody = document.querySelector("tbody");
+  const newRow = document.createElement("tr");
+  const cell1 = document.createElement("td");
+  cell1.textContent = fieldName;
+  const cell2 = document.createElement("td");
+  cell2.textContent = value;
 
-      const fieldCell = document.createElement("td");
-      fieldCell.textContent = field;
-      row.appendChild(fieldCell);
+  newRow.appendChild(cell1);
+  newRow.appendChild(cell2);
 
-      const valueCell = document.createElement("td");
-      valueCell.textContent = value;
-      row.appendChild(valueCell);
-
-      const correctCell = document.createElement("td");
-      correctCell.textContent = correctValue;
-      row.appendChild(correctCell);
-
-      if (value === correctValue) {
-        cell.className = "correct";
-      } else if (value.split(" ").some(word => correctValue.includes(word))) {
-        cell.className = "partial";
-      } else {
-        cell.className = "incorrect";
-      }
-      tbody.appendChild(row);
+  // Ajouter la ligne au tableau
+  tableBody.appendChild(newRow);
     }
 
       document.getElementById("answer").addEventListener("keypress", function(event) {

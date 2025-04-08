@@ -357,6 +357,10 @@
 
     let solution = muscles[Math.floor(Math.random() * muscles.length)];
 
+      function startGame() {
+      solution = muscles[Math.floor(Math.random() * muscles.length)];
+    }
+  
     function checkAnswer() {
       const input = document.getElementById("answer").value.toLowerCase();
       const proposition = muscles.find(m => m.nom.toLowerCase() === input);
@@ -404,6 +408,8 @@
         checkAnswer();
       }
     });
+  
+    window.onload = startGame;
   </script>
 </body>
 </html>
